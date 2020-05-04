@@ -1,0 +1,305 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
+    }
+}
+
+
+.App {
+  box-sizing: border-box !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.Nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6.5vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  transition: all .2s;
+
+  @include respond(tab-port) {
+    height: unset;
+    min-height: 4vh;
+  }
+
+  &__links-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all .2s;
+
+    @include respond(tab-port) {
+      flex-flow: column;
+    }
+  }
+
+  .closeMenu {
+    transition: all .2s;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+  
+  &__link {
+    color: white;
+    font-size: .6rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all .2s;
+
+    @include respond(tab-port) {
+      font-size: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    &--active {
+      color: rgb(255, 69, 1)
+    }
+
+    &:hover {
+      color: orangered;
+    }
+  }
+
+  &__btn {
+    display: none;
+    position: absolute;
+    top: 2vh;
+    right: 2rem;
+    background-color: transparent;
+    height: 10px;
+    width: 10px;
+    transition: all .2s;
+
+    &:hover {
+
+      .Nav__btn::after {
+        background-color: orangered !important;
+      }
+    }
+
+    @include respond(tab-port) {
+      display: unset;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: white;
+      color: white;
+      height: 1px;
+      width: 10px;
+
+      &:hover {
+        background-color: orangered;
+      }
+    }
+
+    &::before {
+      top: -.15rem;
+    }
+
+    &::after {
+      top: .15rem;
+    }
+
+    &--open {
+      position: absolute;
+      top: 2vh;
+      right: 2.5rem;
+      transition: all .2s;
+
+      &::before,
+      &::after {
+        display: none;
+        position: absolute;
+        content: '';
+        background-color: white;
+        color: white;
+        height: 1px;
+        width: 10px;
+
+        @include respond(tab-port) {
+          display: unset;
+        }
+
+        &:hover {
+          background-color: orangered;
+        }
+      }
+
+      &::before {
+        transform-origin: center;
+        transform: rotate(-45deg);
+      }
+      
+      &::after {
+        transform-origin: center;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__divider {
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+}
+
+.Japan-jazz__container {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 2.5rem;
+  width: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-snap-points-y: repeat(100vh);
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include respond(tab-port) {
+    padding-top: 0;
+  }
+}
+
+.Jazz-guy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &--la {
+    flex-flow: row-reverse;
+  }
+
+  @include respond(tab-port) {
+    flex-flow: column;
+    height: unset;
+  }
+  
+
+  &__details {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    padding: 2rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+      height: 35vh;
+      margin-right: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: -.75rem;
+      left: 0;
+
+      content: '';
+      background-color: orangered;
+      height: 3px;
+      width: 3rem;
+    }
+  }
+
+  &__img {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-right: 3px solid orangered;
+    
+    &--la {
+      box-sizing: content-box;
+      border-right: none;
+      border-left: 3px solid orangered;
+    }
+
+    @include respond(tab-port) {
+      width: 100%;
+      height: 60vh;
+      object-position: top;
+      border: none;
+      border-bottom: 3px solid orangered;
+    }
+  }
+
+  &__bio {
+    font-size: .85rem;
+    text-align: left;
+    padding: 1rem;
+    margin: 2rem;
+    margin-left: 0;
+    border-left: 15px solid black;
+    border-right: 15px solid black;
+
+    @include respond(tab-port) {
+      margin-left: 2rem;
+    }
+  }
+  
+  &__fact {
+    color: rgb(187, 187, 187);
+    font-size: .75rem;
+    list-style: square;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 2vh;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  font-size: 0.5rem;
+  letter-spacing: 10px;
+  color: rgb(41, 41, 41);
+}

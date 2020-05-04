@@ -1,0 +1,29 @@
+.Flipper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+
+.Flipper-counts {
+  margin: 2rem;
+  font-family: fantasy;
+  color: rgb(19, 129, 231);
+}
+
+.Flipper-button {
+  font-family: fantasy;
+  background-color: transparent;
+  border: 3px solid white;
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.Flipper-button:hover {
+  color: rgb(19, 129, 231);
+}

@@ -1,0 +1,120 @@
+.VendMach {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-image: url('https://i.pinimg.com/originals/84/f6/df/84f6dfd0cab7510614c75f730448f639.jpg');
+  background-position: center;
+  background-size: contain;
+
+  &__container {
+    display: flex;
+    flex-flow: column;
+    align-self: flex-start;
+    margin-left: 2rem;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-align: left;
+    margin: 1rem 0;
+    font-size: 1rem;
+
+    &--active {
+      border-right: 15px solid pink;
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-self: end;
+    justify-self: end;
+    margin: 2rem;
+  }
+}
+
+.RAMUNE {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+
+  &__image {
+    background-color: orangered;
+    border: 5px solid orangered;
+    height: 50%;
+  }
+
+  &__title {
+    writing-mode: vertical-rl;
+    margin: 2rem;
+    height: 50%;
+  }
+}
+
+.CALPICO {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  height: 100vh;
+
+  &__image {
+    background-color: orangered;
+    border: 5px solid orangered;
+    height: 50%;
+  }
+
+  &__title {
+    writing-mode: vertical-rl;
+    margin: 2rem;
+    height: 50%;
+  }
+}
+
+.SILKYBLACK {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100%;
+  height: 100vh;
+
+  &__image {
+    background-color: orangered;
+    border: 5px solid orangered;
+    height: 40%;
+  }
+
+  &__title {
+    writing-mode: vertical-rl;
+    margin: 2rem;
+    height: 55%;
+  }
+}
+
+.back_btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  writing-mode: vertical-rl;
+  text-decoration: none;
+  color: white;
+}
+
+.Message {
+  border-right: 5px solid orangered;
+}

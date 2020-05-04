@@ -1,0 +1,166 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* background: rgb(16,153,210); */
+  background: linear-gradient(126deg, rgba(16,153,210,1) 50%, rgba(123,251,246,1) 50%);
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(80, 80, 80);
+  }
+}
+
+.joke-list__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;  
+  height: 70vh;
+  width: 80%;
+  background-color: rgb(250, 104, 182);
+  border-radius: 2px;
+}
+
+.joke-list__sidebar {
+  justify-self: start;
+  display: flex;
+  flex-flow: column;
+  height: 110%;
+  width: 35%;
+  // transform: translateX(-15%);
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(137, 39, 155);
+  box-shadow: 10px 11px 21px -8px rgba(89,0,89,1);
+}
+
+.joke-list__title {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.joke-list__title span {
+  color: rgb(16,153,210);
+;
+}
+
+.joke-list__list {
+  width: 65%;
+  height: 70vh;
+  overflow: scroll;
+}
+
+.joke-list__icon {
+  display: block;
+  height: 20rem ;
+  margin: 3rem 0;
+
+  &:hover {
+    animation-name: shake;
+    animation-duration: 2s;
+  }
+}
+
+
+/* Joke componenennt styles  */
+
+.Joke {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: .25rem;
+  font-size: 1rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #68006b;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 15%;
+
+    & i {
+      transition: all .2s;
+    }
+
+    & .upvote:hover {
+      transform: translateY(-2px);
+    }
+
+    & .downvote:hover {
+      transform: translateY(2px);
+    }
+  }
+
+  &__votes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b3b3b;
+    background-color: #fafafa;
+    width: 40px;
+    height: 40px;
+    margin: 0.5rem  1rem;
+    border-radius: 100%;
+    box-shadow: 10px 11px 21px -8px rgb(95, 28, 95);
+  }
+
+  &__joke {
+    width: 77%;
+    margin-left: 1rem;
+  }
+
+  &__emoji {
+    width: 7%;
+  }
+}
+
+
+.upvote {
+  color: rgb(79, 216, 16);
+}
+
+.downvote {
+  color: rgb(139, 31, 158);
+}
+
+.loading-spinner {
+  color: white;
+  text-align: center;
+  border: 10px solid white;
+  padding: 4rem 4rem;
+
+  & .header {
+    font-size: 4rem;
+  }
+}
+
+// Animations
+
+@keyframes shake {
+  0%  { -webkit-transform:     translate(2px, 1px) rotate(0deg); }
+  10% { -webkit-transform:     translate(-1px, -2px) rotate(-2deg); }
+  20% { -webkit-transform:     translate(-3px, 0px) rotate(3deg); }
+  30% { -webkit-transform:     translate(0px, 2px) rotate(0deg); }
+  40% { -webkit-transform:     translate(1px, -1px) rotate(1deg); }
+  50% { -webkit-transform:     translate(-1px, 2px) rotate(-1deg); }
+  60% { -webkit-transform:     translate(-3px, 1px) rotate(0deg); }
+  70% { -webkit-transform:     translate(2px, 1px) rotate(-2deg); }
+  80% { -webkit-transform:     translate(-1px, -1px) rotate(4deg); }
+  90% { -webkit-transform:     translate(2px, 2px) rotate(0deg); }
+  100%{ -webkit-transform:     translate(1px, -2px) rotate(-1deg); }
+}

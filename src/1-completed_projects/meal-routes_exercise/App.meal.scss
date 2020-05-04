@@ -1,0 +1,47 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__link {
+    margin: 2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: turquoise;
+    }
+  }
+}
+
+.food {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  &__pic {
+    height: 20vh;
+    width: 30vw;
+    object-fit: cover;
+  }
+}
+
+.Meal-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  flex-flow: column;
+
+  &__name {
+    margin: 1rem 0;
+  }
+
+  &__btn {
+    font-size: 1.25rem;
+    margin: 2rem;
+  }
+}
+ 
