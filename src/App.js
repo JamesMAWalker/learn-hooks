@@ -6,6 +6,8 @@ import CounterHook from './components/counter-hook.component';
 import Navbar from './components/navbar.component';
 import ToggleHook from './components/toggle-hook.component';
 import ToggleHookCustom from './components/toggle-hook-custom.component';
+import FormClass from './components/form-class.component';
+import FormHook from './components/form-hook.component';
 
 import './App.scss';
 
@@ -42,6 +44,12 @@ class App extends Component {
             exact
             path='/toggle-hook-custom'
             component={ToggleHookCustom}
+          />
+          <Route exact path='/form-comparison' render={() => 
+            <div className='form-comparison'>
+              <FormClass/>
+              <FormHook/>
+            </div>} 
           />
         </Switch>
       </div>
