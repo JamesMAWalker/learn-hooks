@@ -8,6 +8,7 @@ import ToggleHook from './components/toggle-hook.component';
 import ToggleHookCustom from './components/toggle-hook-custom.component';
 import FormClass from './components/form-class.component';
 import FormHook from './components/form-hook.component';
+import SandBox from './components/sandbox.component';
 
 import './App.scss';
 
@@ -37,7 +38,12 @@ class App extends Component {
               </div>
             )}
           />
-          <Route exact path='/counter-class' component={CounterClass} />
+          <Route exact path='/counter-comparison' render={() => (
+            <div className='counter-comparison'>
+              <CounterClass/>
+              <CounterHook/>
+            </div>
+          )} />
           <Route exact path='/counter-hook' component={CounterHook} />
           <Route exact path='/toggle-hook' component={ToggleHook} />
           <Route
@@ -51,6 +57,7 @@ class App extends Component {
               <FormHook/>
             </div>} 
           />
+          <Route path='/sandbox' component={SandBox}/>
         </Switch>
       </div>
     );
